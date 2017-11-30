@@ -43,7 +43,12 @@ var HelloView = widgets.DOMWidgetView.extend({
     },
 
     make_collection: function() {
-      var s = ``;
+      var s = `<div class="collection">
+    <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
+    <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+    <a href="#!" class="collection-item">Alan</a>
+    <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+  </div>`;
       var div = document.createElement('div');
       div.innerHTML = s;
       var elements = div.childNodes;
