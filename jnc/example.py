@@ -1,5 +1,6 @@
 import ipywidgets as widgets
 from traitlets import Unicode
+import time
 
 @widgets.register
 class HelloWorld(widgets.DOMWidget):
