@@ -1,7 +1,7 @@
 all: clean build
 
 clean: FORCE
-	jupyter nbextension uninstall --py --sys-prefix jnc
+	sudo -H jupyter nbextension uninstall --py --sys-prefix jnc
 	rm -rf jnc/static/
 
 build: FORCE
@@ -9,7 +9,7 @@ build: FORCE
 	#cp js/lib/*.js jnc/static/
 	python setup.py build
 	pip install -e .
-	jupyter nbextension install --py --symlink --sys-prefix jnc
-	jupyter nbextension enable --py --sys-prefix jnc
+	sudo -H jupyter nbextension install --py --symlink --sys-prefix jnc
+	sudo -H jupyter nbextension enable --py --sys-prefix jnc
 
 FORCE:
