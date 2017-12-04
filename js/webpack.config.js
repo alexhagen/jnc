@@ -1,16 +1,17 @@
 var path = require('path');
 var version = require('./package.json').version;
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Custom webpack rules are generally the same for all webpack bundles, hence
 // stored in a separate local variable.
 var rules = [
-    { test: /\.css$/, use: ['style-loader', 'css-loader']},
+    { test: /\.css/, loader: ExtractTextPlugin("css")},
     { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
     { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
 ]
 
 var loaders =  [
-    { test: /\.css$/, loader: "style-loader!css-loader" },
+    { test: /\.css/, loader: ExtractTextPlugin("css")},
     { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
     { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
 ]
@@ -49,6 +50,9 @@ module.exports = [
             rules: rules,
             loaders: loaders
         },
+        plugins: [
+          new ExtractTextPlugin("styles.css")
+        ],
         externals: ['@jupyter-widgets/base']
     },
     {// Embeddable jnc bundle
@@ -77,6 +81,9 @@ module.exports = [
             rules: rules,
             loaders: loaders
         },
+        plugins: [
+          new ExtractTextPlugin("styles.css")
+        ],
         externals: ['@jupyter-widgets/base']
     }
 ];
