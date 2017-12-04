@@ -3,7 +3,7 @@ var _ = require('lodash');
 var $ = require('jquery');
 require('./sticky.css');
 require('./materialize.css');
-require('materialize-loader');
+require('materialize-loader!./materialize.config.js');
 //require('./styles.css');
 
 // Custom Model. Custom widgets models must at least provide default values
