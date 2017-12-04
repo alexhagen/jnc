@@ -4,17 +4,20 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Custom webpack rules are generally the same for all webpack bundles, hence
 // stored in a separate local variable.
-var rules = [
-    { test: /\.css/, loader: ExtractTextPlugin("css")},
+var rules_index = [
+    { test: /\.css/, loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=[name]__[local]")},
+    { test: /\.js/, loader: 'babel-loader', include: __dirname + '/lib'},
     { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
     { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
 ]
 
-var loaders =  [
-    { test: /\.css/, loader: ExtractTextPlugin("css")},
+var loaders_index =  [
+    { test: /\.css/, loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=[name]__[local]")},
+    { test: /\.js/, loader: 'babel-loader', include: __dirname + '/lib'},
     { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
     { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
 ]
+
 
 
 module.exports = [
@@ -47,8 +50,8 @@ module.exports = [
         },
         devtool: 'source-map',
         module: {
-            rules: rules,
-            loaders: loaders
+            rules: rules_index,
+            loaders: loaders_index
         },
         plugins: [
           new ExtractTextPlugin("styles.css")
@@ -78,8 +81,8 @@ module.exports = [
         },
         devtool: 'source-map',
         module: {
-            rules: rules,
-            loaders: loaders
+            rules: rules_index,
+            loaders: loaders_index
         },
         plugins: [
           new ExtractTextPlugin("styles.css")

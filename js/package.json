@@ -16,7 +16,10 @@
   ],
   "files": [
     "lib/**/*.js",
-    "dist/*.js"
+    "dist/*.js",
+    "lib/**/*.css",
+    "lib/*.css",
+    "*.css"
   ],
   "scripts": {
     "clean": "rimraf dist/",
@@ -30,6 +33,7 @@
     "babel-preset-es2015": "^6.24.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
+    "materialize-loader": "^2.0.2",
     "rimraf": "^2.6.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.5.5"
@@ -38,10 +42,6 @@
     "@jupyter-widgets/base": "^1.0.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
-    "materialize": "^1.0.0",
-    "materialize-css": "^0.100.2",
-    "materialize-css-loader": "0.0.9",
-    "materialize-loader": "^2.0.2",
     "rework": "^1.0.1",
     "rework-mutate-selectors": "^2.0.0",
     "rework-webpack-loader": "^0.2.0",
