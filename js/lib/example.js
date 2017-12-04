@@ -2,9 +2,10 @@ var widgets = require('@jupyter-widgets/base');
 var _ = require('lodash');
 var $ = require('jquery');
 require('./sticky.css');
-require('./materialize.css');
+//require('./materialize.css');
 //require('materialize-loader!./materialize.config.js');
-let Materialize = require('./materialize.js');
+//let Materialize = require('./materialize.js');
+let toast = require('jquery-toast-plugin');
 let circleProgress = require('jquery-circle-progress');
 
 // Custom Model. Custom widgets models must at least provide default values
@@ -58,10 +59,6 @@ var HelloView = widgets.DOMWidgetView.extend({
         this.make_collection();
         console.log('javascript is working');
         $( document ).ready(function() {
-          $('.materialize__btn').click(function() {
-            console.log('button clicked');
-            Materialize.toast('some toast');
-          });
           $('#circle').circleProgress({
             value: 0.75,
             size: 80,
@@ -69,6 +66,7 @@ var HelloView = widgets.DOMWidgetView.extend({
               gradient: ["red", "orange"]
             }
           });
+          toast.$.toast('here you can put the text of the toast');
         });
     },
 
