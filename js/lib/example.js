@@ -61,7 +61,8 @@ var HelloView = widgets.DOMWidgetView.extend({
       let s = `
         <div class="materialize__collection">
           <a href="#!" class="materialize__collection-item"><span class="materialize__badge">1</span>Alan</a>
-        </div>`;
+        </div>
+        <a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>`;
       var div = document.createElement('div');
       div.innerHTML = s;
       var elements = div.childNodes;
