@@ -3,8 +3,9 @@ var _ = require('lodash');
 var $ = require('jquery');
 require('./sticky.css');
 require('./materialize.css');
-require('materialize-loader!./materialize.config.js');
-//require('./styles.css');
+//require('materialize-loader!./materialize.config.js');
+let Materialize = require('./materialize.js');
+let circleProgress = require('jquery-circle-progress');
 
 // Custom Model. Custom widgets models must at least provide default values
 // for model attributes, including
@@ -55,18 +56,31 @@ var HelloView = widgets.DOMWidgetView.extend({
         this.add_notification();
         this.add_notification();
         this.make_collection();
+        console.log('javascript is working');
+        $( document ).ready(function() {
+          $('.materialize__btn').click(function() {
+            console.log('button clicked');
+            Materialize.toast('some toast');
+          });
+          $('#circle').circleProgress({
+            value: 0.75,
+            size: 80,
+            fill: {
+              gradient: ["red", "orange"]
+            }
+          });
+        });
     },
 
     make_collection: function() {
       let s = `
-        <div class="materialize__collection">
-          <a href="#!" class="materialize__collection-item"><span class="materialize__badge">1</span>Alan</a>
-        </div>
-        <a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>`;
+      <div id="circle"></div>
+      `;
       var div = document.createElement('div');
       div.innerHTML = s;
       var elements = div.childNodes;
       this.el.appendChild(div);
+      this.el.className = 'notwidget';
     },
 
     make_center: function() {
