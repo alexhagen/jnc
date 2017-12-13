@@ -1,10 +1,8 @@
-jnc
-===============================
+# Jupyter Notification Center
 
-Jupyter Notification Center
+*Alex Hagen*
 
-Installation
-------------
+## Installation
 
 To install use pip:
 
@@ -19,3 +17,7 @@ For a development installation (requires npm),
     $ pip install -e .
     $ jupyter nbextension install --py --symlink --sys-prefix jnc
     $ jupyter nbextension enable --py --sys-prefix jnc
+
+## Coming Features Inspiration and Implementation
+
+- [http://epic-spinners.epicmax.co/](http://epic-spinners.epicmax.co/)
