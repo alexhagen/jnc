@@ -47,6 +47,7 @@ function addCss(fileName) {
     head.appendChild(link)
   }
 
+
 // Custom View. Renders the widget model.
 var HelloView = widgets.DOMWidgetView.extend({
     render: function() {
@@ -56,53 +57,40 @@ var HelloView = widgets.DOMWidgetView.extend({
         this.make_center();
         this.add_notification();
         this.add_notification();
-        this.make_collection();
         console.log('javascript is working');
         $( document ).ready(function() {
           $('#circle').circleProgress({
             value: 0.75,
-            size: 80,
+            size: 75,
             fill: {
-              gradient: ["red", "orange"]
+              gradient: ["#746c66", "#e3ae24"]
             }
           });
-          toast.$.toast('here you can put the text of the toast');
         });
     },
 
-    make_collection: function() {
-      let s = `
-      <div id="circle"></div>
-      `;
-      var div = document.createElement('div');
-      div.innerHTML = s;
-      var elements = div.childNodes;
-      this.el.appendChild(div);
-      this.el.className = 'notwidget';
-    },
 
     make_center: function() {
       this.container = document.createElement('div');
       this.container.className = 'sticky__sticky';
       this.container.style.position = 'fixed';
       this.container.style.right = '20px';
-      this.container.style.width = '80px';
-      this.container.style.minHeight = '20px';
+      this.container.style.width = '100px';
       this.el.appendChild(this.container);
-      this.btn = document.createElement('a');
-      this.btn.className = 'materialize__waves-light materialize__btn materialize__waves-effect';
-      this.btn.innerHTML = 'button';
-      this.el.appendChild(this.btn);
     },
 
     add_notification: function() {
       var note = document.createElement('div');
       note.className = 'note';
-      note.style.width = '60px';
+      note.style.width = '80px';
       note.style.marginLeft = 'auto';
       note.style.marginRight = 'auto';
-      note.style.minHeight = '40px';
+      note.style.minHeight = '80px';
       note.style.backgroundColor = '#cccccc';
+      let s = `
+      <div id="circle"></div>
+      `;
+      note.innerHTML = s;
       this.container.appendChild(note);
     },
 
