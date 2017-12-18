@@ -21,3 +21,4 @@ For a development installation (requires npm),
 ## Coming Features Inspiration and Implementation
 
 - [http://epic-spinners.epicmax.co/](http://epic-spinners.epicmax.co/)
+- [https://stackoverflow.com/questions/38689707/connecting-to-remote-ssh-server-via-node-js-html5-console](https://stackoverflow.com/questions/38689707/connecting-to-remote-ssh-server-via-node-js-html5-console)
